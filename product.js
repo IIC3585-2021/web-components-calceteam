@@ -46,6 +46,7 @@ const styles = /*css*/`
   .discount {
     background-color: #b54a97;
     color: #ffffff;
+    font-size: .9vw;
     border-radius: 3px;
     padding: 2px 3px;
   }
@@ -66,7 +67,7 @@ const styles = /*css*/`
     font-weight: bold;
   }
   .name {
-    color: #9da1a3;
+    color: #87898a;
     font-size: .8vw;
   }
   .star {
@@ -76,6 +77,7 @@ const styles = /*css*/`
     font-size: .7vw;
     margin-left: .2vw;
     color: #5e5e5e;
+    font-weight: bold;
   }
   .rating {
     display: flex;
