@@ -165,10 +165,10 @@ class Product extends HTMLElement {
     }
   }
 
-  conectedCallback() {}
+  connectedCallback() {}
 
-  disconectedCallback() {
-    this.shadowRoot.querySelector('.container').removeEventListener()
+  disconnectedCallback() {
+    this.shadowRoot.querySelector('.container').removeEventListener();
   }
 }
 
