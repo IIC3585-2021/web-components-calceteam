@@ -128,6 +128,43 @@ templateTodo.innerHTML = `
           background-color: #ac2925;
           border-color: #761c19;
         }
+      .btn-success {
+        color: #fff;
+        background-color: #5cb85c;
+        border-color: #4cae4c;
+      }
+      .btn-success:focus,
+      .btn-success.focus {
+        color: #fff;
+        background-color: #449d44;
+        border-color: #255625;
+      }
+      .btn-success:hover {
+        color: #fff;
+        background-color: #449d44;
+        border-color: #398439;
+      }
+      .btn-success:active,
+      .btn-success.active,
+      .open > .dropdown-toggle.btn-success {
+        color: #fff;
+        background-color: #449d44;
+        background-image: none;
+        border-color: #398439;
+      }
+      .btn-success:active:hover,
+      .btn-success.active:hover,
+      .open > .dropdown-toggle.btn-success:hover,
+      .btn-success:active:focus,
+      .btn-success.active:focus,
+      .open > .dropdown-toggle.btn-success:focus,
+      .btn-success:active.focus,
+      .btn-success.active.focus,
+      .open > .dropdown-toggle.btn-success.focus {
+        color: #fff;
+        background-color: #398439;
+        border-color: #255625;
+      }
         .item .item-checkbox {
           flex: 1;
           font-size: 18px;
@@ -135,6 +172,7 @@ templateTodo.innerHTML = `
         .item .item-label{
           flex: 5;
           font-size: 18px;
+          padding-left: 10px;
         }
         .item .item-button{
           flex: 1;
@@ -142,6 +180,7 @@ templateTodo.innerHTML = `
         }
     </style>
     <section class="container">
+        <h2 id="title">Tareas</h2>  
         <form id="new-task">
             <input id="new-todo" class="form-control" type="text" placeholder="Ingresa una tarea">
         </form>
@@ -153,14 +192,16 @@ class ToDoList extends HTMLElement {
   constructor() {
     super();
     this._root = this.attachShadow({ mode: "open" });
+    this.shadowRoot.appendChild(templateTodo.content.cloneNode(true));
     this.tasks = [
-      { text: "Tarea 1", checked: false },
-      { text: "Tarea 2", checked: true },
     ];
   }
 
+  static get observedAttributes() {
+    return ['title', 'prompt'];
+  }
+
   connectedCallback() {
-    this.shadowRoot.appendChild(templateTodo.content.cloneNode(true));
     this.listContainer = this.shadowRoot.querySelector("#list-container");
     this.form = this.shadowRoot.querySelector("#new-task");
     this.input = this.shadowRoot.querySelector("input");
@@ -172,6 +213,17 @@ class ToDoList extends HTMLElement {
     });
 
     this._render();
+  }
+
+  attributeChangedCallback(attribute, oldValue, newValue) {
+    if (attribute === 'title') {
+      this.shadowRoot.querySelector('#title').textContent = newValue;
+      return;
+    }
+    if (attribute === 'prompt') {
+      this.shadowRoot.querySelector('#new-todo').placeholder = newValue;
+      return;
+    }
   }
 
   addItem(text) {
@@ -199,9 +251,7 @@ class ToDoList extends HTMLElement {
       const newItemElement = document.createElement("li");
       newItemElement.innerHTML = `
       <li class="item" id="item-${index}">
-          <input class="item-checkbox" id="mark-item-${index}" ${
-        item.checked ? "checked" : ""
-      } type="checkbox">
+        <button class="item-button btn ${!item.checked ? 'btn-success' : ''}" id="mark-item-${index}">${!item.checked ? 'Listo' : 'Pendiente'}</button>
           <label class="item-label ${item.checked ? 'end-task' : ''}">${item.text}</label>
           <button class="item-button btn btn-danger" id="delete-item-${index}">Eliminar</button>
       </li>`;

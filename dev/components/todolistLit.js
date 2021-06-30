@@ -15,6 +15,9 @@ import {LitElement, html, css} from 'lit';
 export class ToDoListLit extends LitElement {
   static get styles() {
     return css`
+      section {
+        margin-top: 12px;
+      }
       .container {
         border-radius: 3px;
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
@@ -195,12 +198,20 @@ export class ToDoListLit extends LitElement {
   constructor() {
     super();
     this.tasks = [
-      {text: 'Tarea 1', checked: false},
-      {text: 'Tarea 2', checked: true},
     ];
 
+    this.title = '';
+    this.prompt = '';
     this.onSubmit = this.onSubmit.bind(this);
   }
+
+  static get properties() {
+    return {
+      title: {type: String},
+      prompt: {type: String},
+    };
+  }
+
 
   addItem(text) {
     this.tasks.push({text, checked: false});
@@ -229,22 +240,23 @@ export class ToDoListLit extends LitElement {
   render() {
     return html`
       <section class="container" @submit="${this.onSubmit}">
+        <h1>${this.title}</h1>
         <form id="new-task">
           <input
             id="new-todo"
             class="form-control"
             type="text"
-            placeholder="Ingresa una tarea"
+            .placeholder="${this.prompt}"
           />
         </form>
         ${this.tasks.map(
           (item, index) => html`<li class="item" id="item-${index}">
-          <button class="item-button btn ${item.checked ? 'btn-success' : ''}" id="delete-item-${index}" @click="${(
+          <button class="item-button btn ${!item.checked ? 'btn-success' : ''}" id="mark-item-${index}" @click="${(
             e
           ) => {
             e.preventDefault();
             this.toggleItem(index);
-          }}">${item.checked ? 'Listo' : 'Pendiente'}</button>
+          }}">${!item.checked ? 'Listo' : 'Pendiente'}</button>
             <label class="item-label ${item.checked ? 'end-task' : ''}">${
             item.text
           }</label>
