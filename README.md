@@ -1,5 +1,9 @@
 # LitElement JavaScript starter
 
+
+# Referencias:
+ * ToDoList inspirada en https://github.com/shprink/web-components-todo/tree/master/native
+
 This project includes a sample component using LitElement with JavaScript.
 
 ## Setup
