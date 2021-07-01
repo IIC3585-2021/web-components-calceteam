@@ -1,73 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Sell Item</title>
-        <script type="module" src="./components/product.js"></script>
-        <script type="module" src="./components/productLit.js"></script>
-    </head>
-    <body>
-        <p>Productos</p>
-        <div class="product-list">
-        <sell-item
-            class="product"
-			name="Parka Hombre"
-			price="40000"
-			rate="3.5"
-			discount="50"
-			newprice="20000"
-			url="https://www.falabella.com/falabella-cl/product/881679083/Parka-Hombre/881786705"
-			image="https://portalropaempresas.cl/wp-content/uploads/2017/08/parka-tipo-pluma.jpg"
-		>
-        </sell-item>
-        <sell-item
-                class="product"
-                name="Parka Hombre"
-                price="100000"
-                rate="2.5"
-                discount="10"
-                newprice="90000"
-                url="https://www.falabella.com/falabella-cl/product/881679083/Parka-Hombre/881786705"
-                image="https://portalropaempresas.cl/wp-content/uploads/2017/08/parka-tipo-pluma.jpg"
-            >
-        </sell-item>
-        </div>
-        <p>Productos Lit</p>
-        <div class="product-list">
-        <sell-item-lit
-                class="product"
-                name="Parka Hombre"
-                price="40000"
-                rate="3.5"
-                discount="50"
-                newprice="20000"
-                url="https://www.falabella.com/falabella-cl/product/881679083/Parka-Hombre/881786705"
-                image="https://portalropaempresas.cl/wp-content/uploads/2017/08/parka-tipo-pluma.jpg"
-            >
-        </sell-item-lit>
-        <sell-item-lit
-                class="product"
-                name="Parka Hombre"
-                price="50000"
-                rate="4.5"
-                discount="20"
-                newprice="40000"
-                url="https://www.falabella.com/falabella-cl/product/881679083/Parka-Hombre/881786705"
-                image="https://portalropaempresas.cl/wp-content/uploads/2017/08/parka-tipo-pluma.jpg"
-            >
-        </sell-item-lit>
-        </div>
-        <style>
-            p {
-                font-size: 5vw;
-                margin: 3vh 0;
-            }
-            .product {
-                margin: 1vh 1vw;
-            }
-            .product-list {
-                display: flex;
-                flex-direction: row;
-            }
-        </style>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Sell Item</title>
+    <script type="module" src="./components/product.js"></script>
+    <script type="module" src="./components/productLit.js"></script>
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../node_modules/lit/polyfill-support.js"></script>
+  </head>
+  <body>
+    <p>Productos</p>
+    <div class="product-list">
+      <sell-item
+        class="product"
+        name="Parka Hombre"
+        price="40000"
+        rate="3.5"
+        discount="50"
+        newprice="20000"
+        url="https://www.falabella.com/falabella-cl/product/881679083/Parka-Hombre/881786705"
+        image="https://portalropaempresas.cl/wp-content/uploads/2017/08/parka-tipo-pluma.jpg"
+      >
+      </sell-item>
+      <sell-item
+        class="product"
+        name="Parka Hombre"
+        price="100000"
+        rate="2.5"
+        discount="10"
+        newprice="90000"
+        url="https://www.falabella.com/falabella-cl/product/881679083/Parka-Hombre/881786705"
+        image="https://portalropaempresas.cl/wp-content/uploads/2017/08/parka-tipo-pluma.jpg"
+        >
+      </sell-item>
+    </div>
+    <p>Productos Lit</p>
+    <div class="product-list">
+      <sell-item-lit
+        class="product"
+        name="Parka Hombre"
+        price="40000"
+        rate="3.5"
+        discount="50"
+        newprice="20000"
+        url="https://www.falabella.com/falabella-cl/product/881679083/Parka-Hombre/881786705"
+        image="https://portalropaempresas.cl/wp-content/uploads/2017/08/parka-tipo-pluma.jpg"
+      >
+      </sell-item-lit>
+      <sell-item-lit
+        class="product"
+        name="Parka Hombre"
+        price="50000"
+        rate="4.5"
+        discount="20"
+        newprice="40000"
+        url="https://www.falabella.com/falabella-cl/product/881679083/Parka-Hombre/881786705"
+        image="https://portalropaempresas.cl/wp-content/uploads/2017/08/parka-tipo-pluma.jpg"
+      >
+      </sell-item-lit>
+    </div>
+    <style>
+      p {
+        font-size: 3vw;
+        margin: 0 0 3vh 0;
+      }
+      .product {
+        margin: 1vh 1vw;
+      }
+      .product-list {
+        display: flex;
+        flex-direction: row;
+      }
+    </style>
+  </body>
 </html>

@@ -1,3 +1,18 @@
+# Web Components
+
+- Para correr el código
+
+```bash
+npm i
+```
+
+```bash
+npm run serve
+```
+- El código está en el directorio [/dev/components]('./dev/components)
+
+- Diapositivas [aquí](https://docs.google.com/presentation/d/1AM-EPVzZAS1Pei8cy-WbgmTdfj2WsUCSPsnnaTMHxHM/edit?usp=sharing)
+
 # LitElement JavaScript starter
 
 This project includes a sample component using LitElement with JavaScript.
