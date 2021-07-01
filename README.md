@@ -13,11 +13,10 @@ npm run serve
 
 - Diapositivas [aquí](https://docs.google.com/presentation/d/1AM-EPVzZAS1Pei8cy-WbgmTdfj2WsUCSPsnnaTMHxHM/edit?usp=sharing)
 
-# LitElement JavaScript starter
-
-
 # Referencias:
  * ToDoList inspirada en https://github.com/shprink/web-components-todo/tree/master/native
+
+# LitElement JavaScript starter
 
 This project includes a sample component using LitElement with JavaScript.
 
